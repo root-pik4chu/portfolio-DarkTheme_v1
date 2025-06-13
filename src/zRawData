@@ -1,0 +1,111 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+
+export default function Preloader({ onComplete }) {
+  const digit1Ref = useRef(null);
+  const digit2Ref = useRef(null);
+  const digit3Ref = useRef(null);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const digit1 = digit1Ref.current;
+    const digit2 = digit2Ref.current;
+    const digit3 = digit3Ref.current;
+
+    // Add additional digits to digit3 for smooth animation
+    for (let i = 0; i < 2; i++) {
+      for (let j = 0; j < 10; j++) {
+        const div = document.createElement('div');
+        div.className = 'block';
+        div.textContent = j;
+        digit3.appendChild(div);
+      }
+    }
+
+    const finalDigit = document.createElement('div');
+    finalDigit.className = 'block';
+    finalDigit.textContent = '0';
+    digit3.appendChild(finalDigit);
+
+    // Animation function
+    function animate(digit, duration, delay = 0) {
+      const numHeight = digit.querySelector('div').clientHeight;
+      const totalDistance = (digit.querySelectorAll('div').length - 1) * numHeight;
+      
+      return gsap.to(digit, {
+        y: -totalDistance,
+        duration: duration,
+        delay: delay,
+        ease: 'power2.inOut',
+      });
+    }
+
+    // Create a timeline for all animations
+    const tl = gsap.timeline({
+      onComplete: () => {
+        // After counting animation, move the preloader up
+        gsap.to(containerRef.current, {
+          y: '-100%',
+          duration: 1,
+          ease: 'power2.inOut',
+          onComplete: onComplete // Call the onComplete callback
+        });
+      }
+    });
+
+    // Add counting animations to timeline
+    tl.add(animate(digit3, 2)) // First digit (0-9)
+      .add(animate(digit2, 2, 0.2), '-=1.8') // Second digit (0-9)
+      .add(animate(digit1, 2, 0.4), '-=1.8'); // Third digit (0-1)
+
+  }, [onComplete]);
+
+  return (
+    <section ref={containerRef} className="font-inter w-screen h-screen overflow-hidden bg-black text-white fixed top-0 left-0 z-10">
+      <div className="w-[200%] h-full p-8 md:p-4 fixed top-0 right-0 flex justify-end items-end gap-2 overflow-hidden z-10">
+        
+        <div 
+          className="h-[100px] flex text-[100px] md:text-[70px] font-normal leading-[100px]"
+          style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100px, 0 100px)' }}
+        >
+          <div ref={digit1Ref} className="relative -top-[15px]">
+            <div className="block"><p>0</p></div>
+            <div className="block"><p>1</p></div>
+          </div>
+          
+          <div ref={digit2Ref} className="relative -top-[15px]">
+            <div className="block">0</div>
+            <div className="block">1</div>
+            <div className="block">2</div>
+            <div className="block">3</div>
+            <div className="block">4</div>
+            <div className="block">5</div>
+            <div className="block">6</div>
+            <div className="block">7</div>
+            <div className="block">8</div>
+            <div className="block">9</div>
+            <div className="block">0</div>
+          </div>
+          
+          <div ref={digit3Ref} className="relative -top-[15px]">
+            <div className="block">0</div>
+            <div className="block">1</div>
+            <div className="block">2</div>
+            <div className="block">3</div>
+            <div className="block">4</div>
+            <div className="block">5</div>
+            <div className="block">6</div>
+            <div className="block">7</div>
+            <div className="block">8</div>
+            <div className="block">9</div>
+          </div>
+        </div>
+          
+      </div>
+    </section>
+  );
+}
+
+// --------------------------------------------------------------------------

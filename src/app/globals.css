@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+
+
+@font-face {
+  font-family: 'fi';
+  src: url('/src/font/inter.TTF') ;
+  
+}
+
+@font-face {
+  font-family: 'Inter-bold';
+  src: url('/public/font/INTER-BOLD-SLNT=0.TTF') format('truetype');
+  
+}
+
+body {
+  
+  font-family: 'inter';
+  background-color: #000;
+}
