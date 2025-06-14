@@ -11,6 +11,7 @@ export default function index() {
             <div className=""><Link href="/about">about</Link></div>
             <div className=""><Link href="/projects">projects</Link></div>
             <div className=""><Link href="/contact">contact</Link></div>
+            <div className=""><Link href="/thoughts">Thoughts</Link></div>
           </div>
         </div>
       </div>

@@ -14,8 +14,27 @@
   
 }
 
+@keyframes scrollUp {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.animate-infinite-scroll {
+  animation: scrollUp 20s linear infinite;
+}
+
 body {
   
   font-family: 'inter';
   background-color: #000;
+}
+
+
+
+.thoughts::-webkit-scrollbar{
+  display: none;
 }
