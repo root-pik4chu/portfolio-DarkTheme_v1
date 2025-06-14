@@ -214,7 +214,7 @@ export default function Hero() {
                     }}
                     className="inline-block origin-left"
                   >
-                    I'm{" "}
+                    I&apos;m{" "}
                     <span className="text-[#FF2B2B] ">
                       Front End Developer & Designer
                     </span>{" "}

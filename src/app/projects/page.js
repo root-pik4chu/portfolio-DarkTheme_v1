@@ -17,7 +17,7 @@ export default function page() {
             <p className="text-xs text-gray-500">001</p>
             <p className="font-semibold text-sm">OCA TOKYO.</p>
             <p className="text-xs text-gray-300 leading-snug">
-              A Scope That Turns Even the Slightest Detail into a "Painting"
+              A Scope That Turns Even the Slightest Detail into a &ldquo;Painting&rdquo;
             </p>
             <div className="bg-gray-300 md:h-[70vh] h-[40vh] w-full relative"> 
               <Image 
