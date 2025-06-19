@@ -74,7 +74,7 @@ export default function page() {
                 />
               </div>
               <div  className="relative">
-              frontend, forever chasing that "wow" moment
+              frontend, forever chasing that &quot;wow&quot; moment
                 <div 
                   
                   className="absolute bottom-0 left-0 w-[50px] h-[5px] bg-[#FF2B2B] transform -translate-x-1/2 opacity-0"
