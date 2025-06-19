@@ -11,7 +11,7 @@ export default function page() {
       top: "10vh",
       left: "2vw",
       width: "30vw",
-      text: "No matter how luxurious the setting, I don't want it to feel too imposing or exclusive. In every project, I aim to create a welcoming and approachable atmosphere."
+      text: "No matter how luxurious the setting I don't want it to feel too imposing or exclusive. In every project, I aim to create a welcoming and approachable atmosphere."
     },
     {
       id: 2,

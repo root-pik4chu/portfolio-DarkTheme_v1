@@ -2,7 +2,7 @@ import React from "react";
 
 export default function page() {
   return (
-    <div className="h-[90vh] text-white bg-black flex items-center justify-center p-4">
+    <div className="h-[100vh] md:h-[90vh] text-white bg-black flex items-center justify-center p-4">
       <div className="w-full max-w-5xl grid md:grid-cols-2 gap-8">
         {/* Left Section */}
         <div className="space-y-4">
