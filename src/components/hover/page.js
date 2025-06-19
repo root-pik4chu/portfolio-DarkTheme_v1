@@ -2,7 +2,7 @@
 import { useRef } from "react";
 import { gsap } from "gsap";
 
-export default function hover({ company, position, date }) {
+export default function Hover({ company, position, date }) {
   const boxRef = useRef(null);
   const overlayRef = useRef(null);
   const textRef = useRef(null);
